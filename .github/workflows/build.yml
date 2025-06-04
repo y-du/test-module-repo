@@ -19,7 +19,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git tag -a ${{ github.ref_name }}-validated
+          git tag -a ${{ github.ref_name }}-validated -m "validated commit ${{ github.sha }}"
           git push origin tag ${{ github.ref_name }}-validated --force
 #      - name: Create commit file
 #        run: echo ${{ github.sha }} > commit
