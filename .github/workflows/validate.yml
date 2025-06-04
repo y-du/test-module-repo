@@ -21,10 +21,3 @@ jobs:
           git config --local user.name "GitHub Action"
           git tag -a ${{ github.ref_name }}-validated -m "validated commit ${{ github.sha }}"
           git push origin tag ${{ github.ref_name }}-validated --force
-#      - name: Create commit file
-#        run: echo ${{ github.sha }} > commit
-#      - name: Release
-#        uses: softprops/action-gh-release@v2
-#        with:
-#          name: ${{ github.ref_name }}
-#          files: commit
