@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Validate
         run: docker run --rm --mount type=bind,src=./,dst=/mnt/data,ro ghcr.io/senergy-platform/mgw-module-validator:latest -m -d -blk .github,.git
+      - name: Create commit file
+        run: echo ${{ github.sha }} > commit
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: commit
