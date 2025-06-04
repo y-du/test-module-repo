@@ -17,6 +17,8 @@ jobs:
         run: docker run --rm --mount type=bind,src=./,dst=/mnt/data,ro ghcr.io/senergy-platform/mgw-module-validator:latest -m -d -blk .github,.git
       - name: Create Tag
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git tag -a ${{ github.ref_name }}-validated
           git push origin tag ${{ github.ref_name }}-validated --force
 #      - name: Create commit file
