@@ -14,4 +14,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Validate
-        run: docker run --rm --mount type=bind,src=./,dst=/mnt/data,ro ghcr.io/senergy-platform/mgw-module-validator:latest -m -d
+        run: docker run --rm --mount type=bind,src=./,dst=/mnt/data,ro ghcr.io/senergy-platform/mgw-module-validator:latest -m -d -blk .github,.git
