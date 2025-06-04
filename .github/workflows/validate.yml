@@ -5,6 +5,8 @@ on:
     branches:
       - testing
       - main
+    paths-ignore:
+      - '.github/**'
   workflow_dispatch:
 
 jobs:
