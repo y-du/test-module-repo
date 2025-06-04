@@ -1,4 +1,4 @@
-name: Validate
+name: Validate and tag
 
 on:
   push:
@@ -11,11 +11,11 @@ jobs:
   validate-modules:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout git repository
         uses: actions/checkout@v4
-      - name: Validate
+      - name: Validate modules
         run: docker run --rm --mount type=bind,src=./,dst=/mnt/data,ro ghcr.io/senergy-platform/mgw-module-validator:latest -m -d -blk .github,.git
-      - name: Create Tag
+      - name: Create tag
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
