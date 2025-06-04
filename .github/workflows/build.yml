@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - testing
+      - main
+  workflow_dispatch:
 
 jobs:
   validate-modules:
